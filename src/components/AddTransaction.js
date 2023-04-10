@@ -29,7 +29,7 @@ const AddTransaction = (props) => {
   const formValid = useRef(true);
 
   const handleInputChange = (e) => {
-    console.log(e.target.name + " : " + e.target.value);
+    //console.log(e.target.name + " : " + e.target.value);
     setFormInput({ ...formInput, [e.target.name]: e.target.value });
   };
 
@@ -76,9 +76,9 @@ const AddTransaction = (props) => {
     //proses data jika form valid
     if (formValid.current) {
       let tanggalInput = new Date();
-      tanggalInput.setDate(parseInt(formInput.tanggal.substring(0, 2)));
-      tanggalInput.setMonth(parseInt(formInput.tanggal.substring(3, 2) - 1));
-      tanggalInput.setFullYear(parseInt(formInput.tanggal.substring(6, 4)));
+      tanggalInput.setDate(parseInt(formInput.tanggal.substr(0, 2)));
+      tanggalInput.setMonth(parseInt(formInput.tanggal.substr(3, 2) - 1));
+      tanggalInput.setFullYear(parseInt(formInput.tanggal.substr(6, 4)));
 
       let transacton = {
         id: Math.floor(Math.random() * 1000000000000).toString(),
@@ -125,7 +125,7 @@ const AddTransaction = (props) => {
                 id="tanggal"
                 name="tanggal"
                 placeholder="dd//mm/yyy"
-                className={`form-control ${errors.tanggal} && "is-invalid`}
+                className={`form-control ${errors.tanggal && "is-invalid "}`}
                 value={formInput.tanggal}
                 onChange={handleInputChange}
               />
@@ -153,7 +153,7 @@ const AddTransaction = (props) => {
                 id="nominal"
                 name="nominal"
                 placeholder="-150000"
-                className={`form-control ${errors.nominal} && "is-invalid`}
+                className={`form-control ${errors.nominal && "is-invalid"}`}
                 value={formInput.nominal}
                 onChange={handleInputChange}
               />
