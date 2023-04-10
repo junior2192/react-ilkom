@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Transaction from "./components/Transaction";
+import SaldoBox from "./components/SaldoBox";
 
 function App() {
   const initTransaction = [
@@ -11,7 +12,7 @@ function App() {
       id: "619941539070",
       tanggal: new Date("01 Nov 2022 9:30").getTime(),
       keterangan: "Gaji bulanan",
-      niominal: 2500000,
+      nominal: 2500000,
     },
     {
       id: "749179155708",
@@ -32,6 +33,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
+      <SaldoBox transactions={transactions} />
       <Transaction transactions={transactions} />
       <Footer />
     </React.Fragment>
