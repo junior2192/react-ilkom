@@ -9,7 +9,7 @@ function App() {
   const initTransaction = [
     {
       id: "619941539070",
-      tabggal: new Date("01 Nov 2022 9:30").getTime(),
+      tanggal: new Date("01 Nov 2022 9:30").getTime(),
       keterangan: "Gaji bulanan",
       niominal: 2500000,
     },
@@ -28,12 +28,11 @@ function App() {
   ];
 
   const [transactions, setTransaction] = useState(initTransaction);
-  console.log(transactions);
 
   return (
     <React.Fragment>
       <Header />
-      <Transaction transaction={transactions} />
+      <Transaction transactions={transactions} />
       <Footer />
     </React.Fragment>
   );
